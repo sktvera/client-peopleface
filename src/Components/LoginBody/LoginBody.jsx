@@ -113,7 +113,7 @@ const LoginBody = () => {
                 </Grid>
                 <Grid item>
                   <Link className='hyperlink' to="/Register" variant="body2">
-                    {"No estas registrado? Registrarse!!"}
+                  <p>No estas registrado? Registrarse!!</p>
                   </Link>
                 </Grid>
               </Grid>

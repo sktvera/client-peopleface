@@ -1,7 +1,6 @@
 import React from 'react'
 import { Routes, Route } from "react-router-dom";
 import Navbar from './Components/Navbar/Navbar';
-import Home from './Routes/Home/Home';
 import Login from './Routes/Login/Login';
 import Register from './Routes/Register/Register';
 import RecoverAccount from './Routes/RecoverAccount/RecoverAccount';
@@ -24,9 +23,9 @@ const App = () => {
       <div className='app'>
         <Navbar/>
         <Routes>
-          {/* <Route exact path='/' element={<Home/>}/> */}
-          <Route path='/client-peopleface' element={<Home/>}/>
+       
           <Route path='/' element={<Login/>}/>
+          <Route path='/Login' element={<Login/>}/>
           <Route path='/Register' element={<Register/>}/>
           <Route path='/RecoverAccount' element={<RecoverAccount/>}/>
           <Route path='/HomePage' element={<HomePage/>}/>

@@ -57,7 +57,7 @@ const Navbar = () => {
           <ul>
             <li><NavLink to="/Register" className='navlinks' onClick={() => setDropdMenu(false)} >Registrarse</NavLink></li>
             <li><NavLink to="/Questions" className='navlinks' onClick={() => setDropdMenu(false)} >Preguntas Frecuentes</NavLink></li>
-            <li><NavLink to="/allies" className='navlinks' onClick={() => setDropdMenu(false)} >Aliados</NavLink></li>
+            <li><NavLink to="/RecoverAccount" className='navlinks' onClick={() => setDropdMenu(false)} >Recuperar cuenta</NavLink></li>
             <li><NavLink to="/aboutus" className='navlinks' onClick={() => setDropdMenu(false)} >Nosotros</NavLink></li>
           </ul>
         </div>
