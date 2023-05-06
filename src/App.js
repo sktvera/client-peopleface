@@ -28,11 +28,11 @@ const App = () => {
           <Route path='/Login' element={<Login/>}/>
           <Route path='/Register' element={<Register/>}/>
           <Route path='/RecoverAccount' element={<RecoverAccount/>}/>
-          <Route path='/HomePage' element={<HomePage/>}/>
           <Route path='/CreateContent' element={<CreateContent/>}/>
           <Route path='/Profile' element={<Profile/>}/>
         </Routes>
         <Footer/>
+        <Route path='/HomePage' element={<HomePage/>}/>
       </div>
       </Provider>
   )

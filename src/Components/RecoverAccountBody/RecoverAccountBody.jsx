@@ -14,7 +14,7 @@ import Logo from './Assets/Img/Logo.png'
 import "./Assets/styles.css"
 
 
-const RegisterBody = () => {
+const RecoverAccountBody = () => {
 
 
     const handleSubmit = (event) => {
@@ -29,14 +29,14 @@ const RegisterBody = () => {
       const theme = createTheme();
 
     return(
-        <div className='BodyRegister'>
+        <div className='bodyRecovery'>
           
           <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
+            marginTop: 10,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -46,31 +46,11 @@ const RegisterBody = () => {
                 <img src={Logo} alt="Logo People Face" />
                 </div>
           <Typography component="h1" variant="h5">
-            Registrarse
+            Recuperar cuenta
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="given-name"
-                  name="firstName"
-               
-                  fullWidth
-                  id="firstName"
-                  label="Nombre"
-                  autoFocus
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                
-                  fullWidth
-                  id="lastName"
-                  label="Apellido"
-                  name="lastName"
-                  autoComplete="family-name"
-                />
-              </Grid>
+          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 4 }}>
+           
+             
               <Grid item xs={12}>
                 <TextField
               
@@ -81,26 +61,16 @@ const RegisterBody = () => {
                   autoComplete="email"
                 />
               </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  
-                  fullWidth
-                  name="password"
-                  label="Constraseña"
-                  type="password"
-                  id="password"
-                  autoComplete="new-password"
-                />
-              </Grid>
              
-            </Grid>
+             
+           
             <Button
               type="submit"
               fullWidth
               variant="outlined"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 4, mb: 3 }}
             >
-              Registrarse
+              Recuperar contraseña
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
@@ -120,7 +90,7 @@ const RegisterBody = () => {
 
 }
 
-export default RegisterBody
+export default RecoverAccountBody
 
 
 
