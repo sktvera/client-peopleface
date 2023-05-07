@@ -1,6 +1,5 @@
 import React from 'react'
 import { Routes, Route } from "react-router-dom";
-import Navbar from './Components/Navbar/Navbar';
 import Login from './Routes/Login/Login';
 import Register from './Routes/Register/Register';
 import RecoverAccount from './Routes/RecoverAccount/RecoverAccount';
@@ -21,18 +20,18 @@ const App = () => {
   return (
     <Provider store={store}>
       <div className='app'>
-        <Navbar/>
+       
         <Routes>
        
           <Route path='/' element={<Login/>}/>
           <Route path='/Login' element={<Login/>}/>
           <Route path='/Register' element={<Register/>}/>
           <Route path='/RecoverAccount' element={<RecoverAccount/>}/>
+          <Route path='/HomePage' element={<HomePage/>}/>
           <Route path='/CreateContent' element={<CreateContent/>}/>
           <Route path='/Profile' element={<Profile/>}/>
         </Routes>
         <Footer/>
-        <Route path='/HomePage' element={<HomePage/>}/>
       </div>
       </Provider>
   )

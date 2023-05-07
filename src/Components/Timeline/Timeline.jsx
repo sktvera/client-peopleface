@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import Post from "./Post/Post";
-import Suggestions from "./Suggestions";
+import Post from "../../Components/Post/Post";
+import Suggestions from "../../Components/Suggestions/Suggestions";
+import { Hidden } from '@mui/material';
+
 import "./Assets/styles.css"
 
 function Timeline() {
@@ -49,9 +51,11 @@ function Timeline() {
           ))}
         </div>
       </div>
+      <Hidden only={['xs','sm','md']}>
       <div className="timeline__right">
         <Suggestions />
       </div>
+      </Hidden>
     </div>
   );
 }

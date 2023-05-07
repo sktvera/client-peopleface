@@ -1,6 +1,11 @@
+.container-homepage{
+  background-color: #000000;
+  color: white;
+}
 .homepage {
     display: flex;
     flex-direction: row;
+    height: 100vh;
   }
   
   .homepage__navWraper {
@@ -12,3 +17,8 @@
     flex: 0.8;
   }
   
+  @media screen and (max-width: 900px) {
+    .homepage{
+      justify-content: flex-end !important;
+    }
+}
