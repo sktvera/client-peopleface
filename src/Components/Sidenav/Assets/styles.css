@@ -64,3 +64,113 @@
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.424);
 }
+
+
+.modal .cardModal{
+  display: flex;
+ flex-direction: row;
+   width: 30%;
+   height: 360px;
+   margin: 2%;
+   -webkit-border-radius: 8px;
+   -moz-border-radius: 8px;
+   -ms-border-radius: 8px;
+   -o-border-radius: 8px;
+}
+
+.bodyCardModal{
+   background: #ffffff;
+   border-radius: 8px;
+   width: 100%;
+   height: 100%;
+   display:grid;
+   grid-template-rows: 20% 80%;
+   -webkit-border-radius: 8px;
+   -moz-border-radius: 8px;
+   -ms-border-radius: 8px;
+   -o-border-radius: 8px;
+   margin-right: 0.5%;
+}
+.CardModalContent{
+  border: 0.1PX solid rgba(0, 0, 0, 0.183);
+}
+.CardModalContent .text-CardModalContent{
+  display: flex;
+  align-items: center;
+ height: 100%;
+ margin: 0px 10px;
+ font-size: 20px;
+}
+
+.infoProfile{
+ margin: 8px 0px 0px 0px;
+  display: grid;
+  grid-template-columns: 50px auto;
+  align-items: center;
+}
+
+.textAndProfile{
+  display: grid;
+  grid-template-rows: 50px auto 50px;
+}
+
+.textAndProfile .textContent{
+  width: 90%;
+  margin: 8px 5% 0% 5%;
+}
+.textAndProfile .textContent textarea{
+  height: 150px !important;
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  resize: none;
+ font-size: 16px;
+}
+
+
+.addImage_img{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px ;
+}
+.addImage_img img{
+  height: 100%;
+  object-fit: cover;
+}
+.addFile{
+  display: grid;
+  grid-template-columns: 100px auto;
+justify-content: space-between;
+width: 95%;
+}
+.addFile button{
+  height: 80%;
+}
+
+
+/* // */
+
+
+.file-input {
+  display: inline-block;
+  width: 200px;
+}
+.file-input input{
+color: white;
+
+
+}
+
+.file-upload-label {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.file-upload-icon {
+  margin-right: 8px;
+}

@@ -22,3 +22,10 @@
       justify-content: flex-end !important;
     }
 }
+
+.homepage__timeline{
+  overflow-y: scroll !important;
+
+}
+
+

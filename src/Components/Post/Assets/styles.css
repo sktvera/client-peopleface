@@ -1,6 +1,7 @@
 .post {
     width: 550px;
     margin: 30px 40px 50px 40px;
+
   }
   
   .post__header {
@@ -47,4 +48,29 @@
   .postIcon :hover {
     cursor: pointer;
   }
-  
+  .settingsPost{
+    transition-property: all !important;
+    transition-duration: 0.3s;
+    transition-timing-function: linear;
+  }
+  .settingsPost:hover{
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.128);
+    border-radius: 8px;
+  }
+  .tittleComments{
+    background-color: rgba(255, 255, 255, 0.128);
+    border-radius: 8px;
+    width: 160px;
+  }
+  .textComment{
+
+  margin-top: 15px;
+  }
+
+  .textComment input{
+    height: 100%;
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid white;
+  }
