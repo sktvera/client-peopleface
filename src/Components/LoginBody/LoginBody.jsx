@@ -35,7 +35,7 @@ const LoginBody = () => {
   const hanldeRunLogin =  ()=>{
     setFormDataLogin(formLogin)
   }
-  console.log(formDataLogin)
+ 
 
   const [saveData, setSaveData ] = useState([])
 
@@ -56,7 +56,7 @@ const LoginBody = () => {
       }
     handleNavigate()
     });
-    console.log({saveData})
+
 
     return(
           <div>

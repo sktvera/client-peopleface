@@ -7,11 +7,11 @@ import axios from 'axios'
 
 import "./Assets/styles.css"
 
-function Timeline() {
+function Timeline({dataProfile}) {
 
   const location = useLocation();
-
   const [saveData, setSaveData ] = useState([])
+
   useEffect(()=> {
     const hanldeSubmitForm = async ()=>{
       const url = "http://localhost:3000/api/feed/all";
@@ -23,17 +23,10 @@ function Timeline() {
           }
         });
         setSaveData(result.data) 
-        
      }
      hanldeSubmitForm()
-    
      },[saveData]);
 
-    
-    
-
-
-   
 
   return (
     <div className="timeline">
@@ -41,14 +34,14 @@ function Timeline() {
         <div className="timeline__posts">
           {saveData.map((post) => (
             <Post
+              dataProfile={dataProfile}
               user={post.author}
               postImage={post.postImage}
-              likes={post.likes}
+              idPost={post.id}
               timestamp={post.createdAt}
               body={post.body}
             />
           ))
-          
           }
         </div>
       </div>
