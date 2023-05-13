@@ -68,3 +68,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+front peopleface este front centa con footer navbar body dinamico autenticacion jwt, consumo de apis, registro login,logout, crear, eliminar, actualizar publicaciones, ver mi propio perfil ver los ususarios registrados, por temas de tiempo no se logro implementar la funcionalidad de realizar comentarios a la publicaciones, aunque a nivel de backend ya este listo, logre desarrollar una parte pero por manejo de errores y de tiempo no se termino a nivel de front,a futuro esta aplicacion, podria tener chat interactivo entre usuarios ya que el backend asi lo permite, visitas al perfil de cada usuario, envio de solicitudes notificaciones, subida y bajada de archivos, subir fotos de perfil, en su mayoria el sitio web es responsive, se uso material ui, y css como ayuda hooks y componenetes 
+
+el proyecto se corre con npm run start 
