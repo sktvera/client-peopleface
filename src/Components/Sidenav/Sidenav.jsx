@@ -16,7 +16,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFile } from '@fortawesome/free-solid-svg-icons';
 import TextField from '@mui/material/TextField';
 import { useNavigate} from 'react-router-dom'
-import axios from 'axios'
+
 
 import "./Assets/styles.css"
 
@@ -33,7 +33,6 @@ const Sidenav =({dataProfile})=> {
   const [openCreate, setopenCreate] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
   const [saveData, setSaveData ] = useState([])
-
   const [openProfile, setOpenProfile ] = useState(false)
   const [openMessages, setOpenMessages ] = useState(false)
 
@@ -46,35 +45,35 @@ const Sidenav =({dataProfile})=> {
     })
   }
  
-  const hanldeSubmitForm = async ()=>{
+  const hanldeSubmitForm = async () => {
     const url = "http://localhost:3000/api/feed";
-    const data = {body:`${formTask.body}`};
-
-fetch(url,{
-  method:'POST',
-  headers:{
-    'Authorization':`Bearer ${location.state.logged}`, 
-    'Content-Type':'applicaion/json'
-  },
-  body:JSON.stringify(data)
-})
-.then(response => response.json())
-.then(data => {
-  // Maneja la respuesta de la petición
-  console.log(data);
-  setSaveData(data) 
-  setSaveData(data) 
-  if(saveData.length !== 0){
-    setopenCreate(!openCreate)
-  }
-})
-.catch(error => {
-  // Maneja cualquier error ocurrido durante la petición
-  console.error(error);
-
-});
+    const data = { body: formTask.body };
+  
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${location.state.logged}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+  
+      if (!response.ok) {
+        throw new Error("Error en la solicitud");
+      }
+  
+      const responseData = await response.json();
      
-};
+      setSaveData(responseData);
+      if (saveData.length !== 0) {
+        setopenCreate(!openCreate);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const handleScaleClose = () => {
     setopenCreate(false);
   };
@@ -89,7 +88,6 @@ fetch(url,{
       setOpenProfile(true)
       setOpenOrClose(!openOrClose)
   };
-
   const handleCloseMessage = () => {
     setOpenMessages(false);
   };
@@ -97,9 +95,6 @@ fetch(url,{
       setOpenMessages(true)
       setOpenOrClose(!openOrClose)
   };
-
-
-
 
   const handleTextAreaClick = (event) => {
     event.stopPropagation();
@@ -110,7 +105,6 @@ fetch(url,{
   };
 
   const handleLogout = ()=>{ 
-
     localStorage.clear();
     navigate('/Login')
   }
@@ -123,38 +117,39 @@ fetch(url,{
     alt="People Face"
     />
     {openOrClose === true ? 
-    <div className="sidenav__buttons">
-        <button onClick={()=>{setOpenProfile(!openProfile)}} className="sidenav__button">
-            <AccountCircleIcon />
-            <span>
-              Perfil
-            </span>
-        </button>
-        <button onClick={()=>{setOpenMessages(!openMessages)}} className="sidenav__button">
-            <ChatIcon />
-            <span>
-              Mensajes
-            </span>
-        </button>
-        <button 
-            onClick={handleScaleOpen}
-            className="sidenav__button">
-            <AddCircleOutlineIcon />
-            <span>
-              Create
-            </span>
-        </button>
-        <button className="sidenav__button">
-                <Avatar style={{ marginRight: "10px" }}>
-                {dataProfile.firstName.charAt(0).toUpperCase()}
-                </Avatar>{" "}
-            <span>
-                <button onClick={handleLogout}  className="logout__button">
-                    Logout
-                </button>
-            </span>
-        </button>
-    </div>:
+        <div className="sidenav__buttons">
+            <button onClick={()=>{setOpenProfile(!openProfile)}} className="sidenav__button">
+                <AccountCircleIcon />
+                <span>
+                  Perfil
+                </span>
+            </button>
+            <button onClick={()=>{setOpenMessages(!openMessages)}} className="sidenav__button">
+                <ChatIcon />
+                <span>
+                  Mensajes
+                </span>
+            </button>
+            <button 
+                onClick={handleScaleOpen}
+                className="sidenav__button">
+                <AddCircleOutlineIcon />
+                <span>
+                  Create
+                </span>
+            </button>
+            <button className="sidenav__button">
+                    <Avatar style={{ marginRight: "10px" }}>
+                    {dataProfile.firstName.charAt(0).toUpperCase()}
+                    </Avatar>{" "}
+                <span>
+                    <button onClick={handleLogout}  className="logout__button">
+                        Logout
+                    </button>
+                </span>
+            </button>
+        </div>
+    :
     null
     }
       <div className="sidenav__more">
@@ -215,8 +210,6 @@ fetch(url,{
     </Modal>
     :null}   
 
-
-
     {openProfile ?
       <Modal
       open={handleOpenProfile}
@@ -262,7 +255,6 @@ fetch(url,{
             </Box>
     </Modal>
     :null}      
-
 
     {openMessages ?
      <Modal

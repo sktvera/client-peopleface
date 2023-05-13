@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { Avatar } from "@mui/material";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
@@ -7,62 +7,73 @@ import TelegramIcon from "@mui/icons-material/Telegram";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import TextField from '@mui/material/TextField';
 import { useLocation} from 'react-router';
+import Comments from '../Comments/Comments'
 import axios from 'axios'
 
 import "./Assets/styles.css"
 
 function Post({timestamp, body, user, dataProfile,idPost}) {
 
-
   const location = useLocation();
- 
   const newTimestamp = new Date(timestamp).toLocaleString();
 
   const [openComments, setOpenComments ] = useState(false)
   const [openSettings, setOpenSettings ] = useState(false)
   const [openUpdate, setOpenUpdate ] = useState(false)
-  const [saveData, setSaveData ] = useState([])
-  const [saveDataUpdate, setSaveDataUpdate ] = useState([])
   const [formUpdate, setFormUpdate ] = useState({"body":body})
+  
 
-  const habdledelete = async()=>{
+    const habdledelete = async()=>{
     const url = `http://localhost:3000/api/feed/${idPost}`;
-      const result = await axios.delete(url,
-       {
-          headers: {
-            'Authorization': `Bearer ${location.state.logged}`, // Reemplaza 'tu_token' con el token real
-            'Content-Type': 'applicaion/json'
-          }
-        });
-        setSaveData(result.data) 
-        setOpenSettings(!openSettings)
-  }
-const handleClose=()=>{
-    setOpenUpdate(!openUpdate)
-}
+    const result = await axios.delete(url,
+    {
+        headers: {
+        'Authorization': `Bearer ${location.state.logged}`, 
+        'Content-Type': 'application/json'
+    }});
+    setOpenSettings(!openSettings)}
 
-const handleUpdate = (event) => {
-  const value = event.target.value
-  setFormUpdate({...formUpdate,
-  [event.target.name]:value})
-}
-const handleUpdateApi = async()=>{
-    const url = `http://localhost:3000/api/feed/${idPost}`;
-      const result = await axios.put(url,
-        {
-            "body": formUpdate.body
-        },
-       {
-          headers: {
-            'Authorization': `Bearer ${location.state.logged}`, // Reemplaza 'tu_token' con el token real
-            'Content-Type': 'applicaion/json'
-          }
-        });
-        setSaveDataUpdate(result.data) 
-        setOpenUpdate(!openUpdate)
+    const handleUpdate = (event) => {
+        const value = event.target.value
+        setFormUpdate({...formUpdate,
+        [event.target.name]:value})
     }
 
+    const handleUpdateApi = async()=>{
+    const url = `http://localhost:3000/api/feed/${idPost}`;
+    const result = await axios.put(url,
+    {
+    "body": formUpdate.body
+    },{
+    headers: {
+    'Authorization': `Bearer ${location.state.logged}`, 
+    'Content-Type': 'application/json'
+    }}); 
+    setOpenUpdate(!openUpdate)}
 
+    const [Nwcmnt, setNwcmnt ] = useState({})
+        const handleSaveNewComment =(event)=>{
+        const value = event.target.value
+        setNwcmnt({...Nwcmnt,
+        [event.target.name]:value})
+    }
+
+    const [newComment, setNewComment ] = useState()
+    const handleSendComment = async ()=>{
+    const url = `http://localhost:3000/api/comment/feed-post/${idPost}/comment`;
+    const result = await axios.post(url,
+    {
+    "body":Nwcmnt.body,
+    "author": location.state.userId
+    },{
+    headers: {
+    'Authorization': `Bearer ${location.state.logged}`, 
+    'Content-Type': 'applicaion/json'
+    }});
+    setNewComment(result.data)}
+          
+    const handleClose=()=>{
+    setOpenUpdate(!openUpdate)}
 
   return(
         <div className="post">
@@ -108,6 +119,11 @@ const handleUpdateApi = async()=>{
                 :
                 <div className='descriptionFeed'><p>{body}</p></div>
                 }
+{/* 
+            <Comments
+            idPost={idPost}
+            /> 
+*/}
             </div>
             {openComments=== true?
             <div className='textComment'>
@@ -118,13 +134,12 @@ const handleUpdateApi = async()=>{
                     <TextField
                     margin="normal"
                     fullWidth
+                    onChange={handleSaveNewComment}
                     name="body"
-                    autoComplete="email"
-                    
                     autoFocus
                     />
                 </div>
-                <button  className="logout__button">
+                <button onClick={handleSendComment} className="logout__button">
                     Publicar
                 </button>
             </div>

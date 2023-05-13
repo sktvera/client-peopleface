@@ -5,6 +5,7 @@ import { Hidden } from '@mui/material';
 import {  useLocation } from 'react-router-dom';
 import axios from 'axios'
 import { useNavigate} from 'react-router-dom'
+/* import NavbarMobile from '../../Components/NavbarMobile/NavbarMobile' */
 import "./Assets/styles.css"
 
 const Homepage =()=> {
@@ -24,7 +25,6 @@ const Homepage =()=> {
           }
         });
         setSaveData(result.data) 
-    
      }
      hanldeSubmitForm()
      },[saveData]);
@@ -32,16 +32,22 @@ const Homepage =()=> {
     
 
      const [items, setItem ] = useState()
-     
      useEffect(() => {
-  
       localStorage.setItem('items', `${location.state.userId}`);
     }, [items]);
     
 
   return (
+<div>
+  
+{/* 
+    <Hidden only={['xl','lg', 'md']}>
+        <NavbarMobile
+        dataProfile={saveData}
+        />
+    </Hidden> 
+*/}
    <div className="container-homepage">
-    <NavbarMobile/>
      <div className="homepage">
      <Hidden only={['xs','sm']}>
       <div className="homepage__navWraper">
@@ -53,6 +59,7 @@ const Homepage =()=> {
       </div>
     </div>
    </div>
+</div>
   );
 }
 

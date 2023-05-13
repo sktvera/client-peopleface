@@ -17,6 +17,7 @@ const RegisterBody = () => {
 
   const navigate = useNavigate()
   const [formRegister, setFormRegister ] = useState({})
+  console.log(formRegister)
 
   const handleFormRegister = (event) => {
     const value = event.target.value
@@ -75,6 +76,8 @@ const [saveData, setSaveData ] = useState([])
                           <Grid container spacing={2}>
                               <Grid item xs={12} sm={6}>
                                     <TextField
+                                    error
+                                    className='inputfirstName'
                                     onChange={handleFormRegister}
                                     autoComplete="given-name"
                                     name="firstName"

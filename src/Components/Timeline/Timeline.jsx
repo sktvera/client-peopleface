@@ -18,7 +18,7 @@ function Timeline({dataProfile}) {
       const result = await axios.get(url,
        {
           headers: {
-            'Authorization': `Bearer ${location.state.logged}`, // Reemplaza 'tu_token' con el token real
+            'Authorization': `Bearer ${location.state.logged}`, 
             'Content-Type': 'applicaion/json'
           }
         });

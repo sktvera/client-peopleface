@@ -1,23 +1,18 @@
 
 import React, { useEffect, useState } from 'react'
 import Button from '@mui/material/Button';
-
 import TextField from '@mui/material/TextField';
 import { Link } from 'react-router-dom'
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-
 import Logo from './Assets/Img/Logo.png'
 import { useNavigate} from 'react-router-dom'
-
 import axios from 'axios'
 
 import "./Assets/styles.css"
-  
 
-  
 const LoginBody = () => {
 
   const navigate = useNavigate()
@@ -29,16 +24,13 @@ const LoginBody = () => {
     [event.target.name]:value
   })
 }
-
   const [formDataLogin, setFormDataLogin ] = useState([])
-
   const hanldeRunLogin =  ()=>{
     setFormDataLogin(formLogin)
   }
  
 
   const [saveData, setSaveData ] = useState([])
-
   useEffect(()=> {
    const hanldeSubmitForm = async ()=>{
      const url = "http://localhost:3000/api/auth/login";
@@ -47,8 +39,7 @@ const LoginBody = () => {
         "email":formDataLogin.email,
         "password":formDataLogin.password
      });
-       setSaveData(result.data) 
-    }
+       setSaveData(result.data)}
     hanldeSubmitForm()
     const handleNavigate = () =>{
      if(saveData.length !== 0){

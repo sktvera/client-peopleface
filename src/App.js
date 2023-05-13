@@ -5,7 +5,7 @@ import Register from './Routes/Register/Register';
 import RecoverAccount from './Routes/RecoverAccount/RecoverAccount';
 import HomePage from './Routes/HomePage/HomePage';
 /* import CreateContent from './Routes/CreateContent/CreateContent'; */
-import Profile from './Routes/Profile/Profile';
+/* import Profile from './Routes/Profile/Profile'; */
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute'
 import Footer from './Components/Footer/Footer';
 
@@ -21,9 +21,7 @@ const App = () => {
 
   return (
     <Provider store={store}>
-  
       <div className='app'>
-      
         <Routes>
           <Route path='/' element={<Login/>}/>
           <Route path='/Login' element={<Login/>}/>
@@ -41,7 +39,7 @@ const App = () => {
         </Routes>
         <Footer/>
       </div>
-      </Provider>
+    </Provider>
   )
 
 
